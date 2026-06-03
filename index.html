@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vers&iacute;culos e Ora&ccedil;&otilde;es</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://thebibleapi.netlify.app">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="top-nav" aria-label="Navega&ccedil;&atilde;o principal">
+      <a href="#versiculo">Vers&iacute;culo</a>
+      <a href="#oracoes">Ora&ccedil;&otilde;es</a>
+    </nav>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-content">
+        <p class="eyebrow">Momento de f&eacute;</p>
+        <h1 id="page-title">Vers&iacute;culo e Ora&ccedil;&otilde;es</h1>
+        <p class="hero-copy">
+          Um espa&ccedil;o simples para receber uma palavra b&iacute;blica aleat&oacute;ria e rezar com ora&ccedil;&otilde;es tradicionais.
+        </p>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section id="versiculo" class="verse-section" aria-labelledby="verse-title">
+      <div class="section-heading">
+        <p class="eyebrow">B&iacute;blia Sagrada</p>
+        <h2 id="verse-title">Receba um vers&iacute;culo aleat&oacute;rio</h2>
+      </div>
+
+      <div class="verse-panel">
+        <div class="verse-card" aria-live="polite">
+          <p id="verseText" class="verse-text">
+            Clique no bot&atilde;o para sortear um vers&iacute;culo da tradu&ccedil;&atilde;o Jo&atilde;o Ferreira de Almeida.
+          </p>
+          <p id="verseReference" class="verse-reference">Aguardando seu clique</p>
+          <p id="verseStatus" class="verse-status">A busca usa uma API p&uacute;blica e precisa de internet.</p>
+        </div>
+
+        <button id="verseButton" class="primary-button" type="button">
+          <span class="button-icon" aria-hidden="true">&#10022;</span>
+          <span id="verseButtonLabel" class="button-label">Mostrar vers&iacute;culo</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="oracoes" class="prayers-section" aria-labelledby="prayers-title">
+      <div class="section-heading">
+        <p class="eyebrow">Ora&ccedil;&otilde;es escritas</p>
+        <h2 id="prayers-title">Ora&ccedil;&otilde;es cat&oacute;licas tradicionais</h2>
+      </div>
+
+      <nav class="prayer-links" aria-label="Lista de ora&ccedil;&otilde;es">
+        <a href="#pai-nosso">Pai Nosso</a>
+        <a href="#ave-maria">Ave Maria</a>
+        <a href="#gloria">Gl&oacute;ria ao Pai</a>
+        <a href="#santo-anjo">Santo Anjo</a>
+        <a href="#credo">Credo</a>
+        <a href="#manha">Ora&ccedil;&atilde;o da manh&atilde;</a>
+        <a href="#noite">Ora&ccedil;&atilde;o da noite</a>
+        <a href="#protecao">Prote&ccedil;&atilde;o</a>
+      </nav>
+
+      <div class="prayer-grid">
+        <article id="pai-nosso" class="prayer-card">
+          <h3>Pai Nosso</h3>
+          <p>
+            Pai nosso que estais nos c&eacute;us, santificado seja o vosso nome; venha a n&oacute;s o vosso reino; seja feita a vossa vontade, assim na terra como no c&eacute;u.
+          </p>
+          <p>
+            O p&atilde;o nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como n&oacute;s perdoamos a quem nos tem ofendido; e n&atilde;o nos deixeis cair em tenta&ccedil;&atilde;o, mas livrai-nos do mal. Am&eacute;m.
+          </p>
+        </article>
+
+        <article id="ave-maria" class="prayer-card">
+          <h3>Ave Maria</h3>
+          <p>
+            Ave Maria, cheia de gra&ccedil;a, o Senhor &eacute; convosco; bendita sois v&oacute;s entre as mulheres, e bendito &eacute; o fruto do vosso ventre, Jesus.
+          </p>
+          <p>
+            Santa Maria, M&atilde;e de Deus, rogai por n&oacute;s, pecadores, agora e na hora de nossa morte. Am&eacute;m.
+          </p>
+        </article>
+
+        <article id="gloria" class="prayer-card">
+          <h3>Gl&oacute;ria ao Pai</h3>
+          <p>
+            Gl&oacute;ria ao Pai, ao Filho e ao Esp&iacute;rito Santo.
+          </p>
+          <p>
+            Como era no princ&iacute;pio, agora e sempre. Am&eacute;m.
+          </p>
+        </article>
+
+        <article id="santo-anjo" class="prayer-card">
+          <h3>Santo Anjo</h3>
+          <p>
+            Santo Anjo do Senhor, meu zeloso guardador, se a ti me confiou a piedade divina, sempre me rege, guarda, governa e ilumina. Am&eacute;m.
+          </p>
+        </article>
+
+        <article id="credo" class="prayer-card prayer-card-wide">
+          <h3>Credo</h3>
+          <p>
+            Creio em Deus Pai todo-poderoso, criador do c&eacute;u e da terra; e em Jesus Cristo, seu &uacute;nico Filho, nosso Senhor; que foi concebido pelo poder do Esp&iacute;rito Santo; nasceu da Virgem Maria; padeceu sob P&ocirc;ncio Pilatos, foi crucificado, morto e sepultado.
+          </p>
+          <p>
+            Desceu &agrave; mans&atilde;o dos mortos; ressuscitou ao terceiro dia; subiu aos c&eacute;us; est&aacute; sentado &agrave; direita de Deus Pai todo-poderoso, donde h&aacute; de vir a julgar os vivos e os mortos.
+          </p>
+          <p>
+            Creio no Esp&iacute;rito Santo; na santa Igreja cat&oacute;lica; na comunh&atilde;o dos santos; na remiss&atilde;o dos pecados; na ressurrei&ccedil;&atilde;o da carne; na vida eterna. Am&eacute;m.
+          </p>
+        </article>
+
+        <article id="manha" class="prayer-card">
+          <h3>Ora&ccedil;&atilde;o da manh&atilde;</h3>
+          <p>
+            Senhor, no sil&ecirc;ncio deste dia que nasce, venho pedir-vos paz, sabedoria e for&ccedil;a. Quero olhar hoje o mundo com olhos cheios de amor, ser paciente, compreensivo e manso.
+          </p>
+          <p>
+            Que eu veja al&eacute;m das apar&ecirc;ncias e reconhe&ccedil;a vossa presen&ccedil;a em cada pessoa. Am&eacute;m.
+          </p>
+        </article>
+
+        <article id="noite" class="prayer-card">
+          <h3>Ora&ccedil;&atilde;o da noite</h3>
+          <p>
+            Meu Deus, obrigado por este dia. Entrego em vossas m&atilde;os minhas alegrias, preocupa&ccedil;&otilde;es e tudo o que vivi.
+          </p>
+          <p>
+            Perdoai minhas faltas, guardai minha fam&iacute;lia e concedei-nos uma noite tranquila sob vossa prote&ccedil;&atilde;o. Am&eacute;m.
+          </p>
+        </article>
+
+        <article id="protecao" class="prayer-card">
+          <h3>Ora&ccedil;&atilde;o de prote&ccedil;&atilde;o</h3>
+          <p>
+            Senhor Jesus, cobri-me com vossa luz e guardai-me de todo mal. Protegei minha casa, minha fam&iacute;lia e meus caminhos.
+          </p>
+          <p>
+            Que vossa paz esteja comigo e que meu cora&ccedil;&atilde;o permane&ccedil;a firme na f&eacute;. Am&eacute;m.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Feito para um momento calmo de ora&ccedil;&atilde;o, leitura e f&eacute;.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
