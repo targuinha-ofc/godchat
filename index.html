@@ -3,155 +3,953 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vers&iacute;culos e Ora&ccedil;&otilde;es</title>
-  <link rel="preconnect" href="https://images.unsplash.com">
-  <link rel="preconnect" href="https://thebibleapi.netlify.app">
+  <title>Versículos, Orações e Santos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- NAV -->
   <header class="site-header">
-    <nav class="top-nav" aria-label="Navega&ccedil;&atilde;o principal">
-      <a href="#versiculo">Vers&iacute;culo</a>
-      <a href="#oracoes">Ora&ccedil;&otilde;es</a>
+    <nav class="top-nav" aria-label="Navegação principal">
+      <a href="#versiculo">Versículo</a>
+      <a href="#oracoes">Orações</a>
+      <a href="#santos">Santos</a>
+      <a href="#terco">Terço</a>
+      <a href="#estudo">Estudo</a>
     </nav>
 
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-content">
-        <p class="eyebrow">Momento de f&eacute;</p>
-        <h1 id="page-title">Vers&iacute;culo e Ora&ccedil;&otilde;es</h1>
+        <p class="eyebrow">Fé Católica</p>
+        <h1 id="page-title">Versículos,<br>Orações<br>&amp; Santos</h1>
         <p class="hero-copy">
-          Um espa&ccedil;o simples para receber uma palavra b&iacute;blica aleat&oacute;ria e rezar com ora&ccedil;&otilde;es tradicionais.
+          Um espaço sagrado de oração, devoção e aprendizado da fé cristã católica.
         </p>
+        <div class="hero-ctas">
+          <a href="#versiculo" class="cta-btn cta-primary">Versículo do dia</a>
+          <a href="#terco" class="cta-btn cta-ghost">Como rezar o Terço</a>
+        </div>
       </div>
+      <div class="hero-ornament" aria-hidden="true">✦</div>
     </section>
   </header>
 
   <main>
-    <section id="versiculo" class="verse-section" aria-labelledby="verse-title">
-      <div class="section-heading">
-        <p class="eyebrow">B&iacute;blia Sagrada</p>
-        <h2 id="verse-title">Receba um vers&iacute;culo aleat&oacute;rio</h2>
-      </div>
 
+    <!-- ════════════════ VERSÍCULO ════════════════ -->
+    <section id="versiculo" class="verse-section content-section" aria-labelledby="verse-title">
+      <div class="section-heading">
+        <span class="section-icon" aria-hidden="true">✦</span>
+        <p class="eyebrow">Bíblia Sagrada</p>
+        <h2 id="verse-title">Receba um versículo aleatório</h2>
+      </div>
       <div class="verse-panel">
         <div class="verse-card" aria-live="polite">
-          <p id="verseText" class="verse-text">
-            Clique no bot&atilde;o para sortear um vers&iacute;culo da tradu&ccedil;&atilde;o Jo&atilde;o Ferreira de Almeida.
-          </p>
+          <div class="verse-deco" aria-hidden="true">"</div>
+          <p id="verseText" class="verse-text">Clique no botão para sortear um versículo em português do Brasil.</p>
           <p id="verseReference" class="verse-reference">Aguardando seu clique</p>
-          <p id="verseStatus" class="verse-status">A busca usa uma API p&uacute;blica e precisa de internet.</p>
+          <p id="verseStatus" class="verse-status">A busca usa uma API pública e precisa de internet.</p>
         </div>
-
         <button id="verseButton" class="primary-button" type="button">
-          <span class="button-icon" aria-hidden="true">&#10022;</span>
-          <span id="verseButtonLabel" class="button-label">Mostrar vers&iacute;culo</span>
+          <span class="button-icon" aria-hidden="true">✦</span>
+          <span id="verseButtonLabel" class="button-label">Mostrar versículo</span>
         </button>
       </div>
     </section>
 
-    <section id="oracoes" class="prayers-section" aria-labelledby="prayers-title">
+    <!-- ════════════════ ORAÇÕES ════════════════ -->
+    <section id="oracoes" class="prayers-section content-section" aria-labelledby="prayers-title">
       <div class="section-heading">
-        <p class="eyebrow">Ora&ccedil;&otilde;es escritas</p>
-        <h2 id="prayers-title">Ora&ccedil;&otilde;es cat&oacute;licas tradicionais</h2>
+        <span class="section-icon" aria-hidden="true">🕊</span>
+        <p class="eyebrow">Orações escritas</p>
+        <h2 id="prayers-title">Orações católicas tradicionais</h2>
       </div>
 
-      <nav class="prayer-links" aria-label="Lista de ora&ccedil;&otilde;es">
+      <nav class="prayer-links" aria-label="Lista de orações">
         <a href="#pai-nosso">Pai Nosso</a>
         <a href="#ave-maria">Ave Maria</a>
-        <a href="#gloria">Gl&oacute;ria ao Pai</a>
+        <a href="#gloria">Glória ao Pai</a>
         <a href="#santo-anjo">Santo Anjo</a>
         <a href="#credo">Credo</a>
-        <a href="#manha">Ora&ccedil;&atilde;o da manh&atilde;</a>
-        <a href="#noite">Ora&ccedil;&atilde;o da noite</a>
-        <a href="#protecao">Prote&ccedil;&atilde;o</a>
+        <a href="#salve-rainha">Salve Rainha</a>
+        <a href="#angelus">Angelus</a>
+        <a href="#memorare">Memorare</a>
+        <a href="#magnificat">Magnificat</a>
+        <a href="#manha">Manhã</a>
+        <a href="#noite">Noite</a>
+        <a href="#protecao">Proteção</a>
+        <a href="#ato-contrição">Ato de Contrição</a>
+        <a href="#consagracao">Consagração a Maria</a>
       </nav>
 
       <div class="prayer-grid">
         <article id="pai-nosso" class="prayer-card">
           <h3>Pai Nosso</h3>
-          <p>
-            Pai nosso que estais nos c&eacute;us, santificado seja o vosso nome; venha a n&oacute;s o vosso reino; seja feita a vossa vontade, assim na terra como no c&eacute;u.
-          </p>
-          <p>
-            O p&atilde;o nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como n&oacute;s perdoamos a quem nos tem ofendido; e n&atilde;o nos deixeis cair em tenta&ccedil;&atilde;o, mas livrai-nos do mal. Am&eacute;m.
-          </p>
+          <p>Pai nosso que estais nos céus, santificado seja o vosso nome; venha a nós o vosso reino; seja feita a vossa vontade, assim na terra como no céu.</p>
+          <p>O pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.</p>
         </article>
 
         <article id="ave-maria" class="prayer-card">
           <h3>Ave Maria</h3>
-          <p>
-            Ave Maria, cheia de gra&ccedil;a, o Senhor &eacute; convosco; bendita sois v&oacute;s entre as mulheres, e bendito &eacute; o fruto do vosso ventre, Jesus.
-          </p>
-          <p>
-            Santa Maria, M&atilde;e de Deus, rogai por n&oacute;s, pecadores, agora e na hora de nossa morte. Am&eacute;m.
-          </p>
+          <p>Ave Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus.</p>
+          <p>Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora de nossa morte. Amém.</p>
         </article>
 
         <article id="gloria" class="prayer-card">
-          <h3>Gl&oacute;ria ao Pai</h3>
-          <p>
-            Gl&oacute;ria ao Pai, ao Filho e ao Esp&iacute;rito Santo.
-          </p>
-          <p>
-            Como era no princ&iacute;pio, agora e sempre. Am&eacute;m.
-          </p>
+          <h3>Glória ao Pai</h3>
+          <p>Glória ao Pai, ao Filho e ao Espírito Santo.</p>
+          <p>Como era no princípio, agora e sempre. Amém.</p>
         </article>
 
         <article id="santo-anjo" class="prayer-card">
           <h3>Santo Anjo</h3>
-          <p>
-            Santo Anjo do Senhor, meu zeloso guardador, se a ti me confiou a piedade divina, sempre me rege, guarda, governa e ilumina. Am&eacute;m.
-          </p>
+          <p>Santo Anjo do Senhor, meu zeloso guardador, se a ti me confiou a piedade divina, sempre me rege, guarda, governa e ilumina. Amém.</p>
+        </article>
+
+        <article id="salve-rainha" class="prayer-card">
+          <h3>Salve Rainha</h3>
+          <p>Salve Rainha, Mãe de Misericórdia, vida, doçura e esperança nossa, salve! A vós bradamos, os degredados filhos de Eva; a vós suspiramos, gemendo e chorando neste vale de lágrimas.</p>
+          <p>Eia, pois, advogada nossa, esses vossos olhos misericordiosos a nós volvei; e depois deste desterro mostrai-nos Jesus, o bendito fruto do vosso ventre, ó clemente, ó piedosa, ó doce sempre Virgem Maria!</p>
+          <p><em>V. Rogai por nós, santa Mãe de Deus. R. Para que sejamos dignos das promessas de Cristo. Amém.</em></p>
+        </article>
+
+        <article id="angelus" class="prayer-card">
+          <h3>Angelus</h3>
+          <p><em>V. O Anjo do Senhor anunciou a Maria.<br>R. E ela concebeu pelo Espírito Santo.</em></p>
+          <p>Ave Maria...</p>
+          <p><em>V. Eis aqui a serva do Senhor.<br>R. Faça-se em mim segundo a vossa palavra.</em></p>
+          <p>Ave Maria...</p>
+          <p><em>V. E o Verbo se fez carne.<br>R. E habitou entre nós.</em></p>
+          <p>Ave Maria...</p>
+          <p><em>V. Rogai por nós, Santa Mãe de Deus.<br>R. Para que sejamos dignos das promessas de Cristo.</em></p>
+          <p>Oremos: Infundi, Senhor, a vossa graça em nossas almas, para que, nós, que conhecemos, pelo anúncio do Anjo, a Encarnação de Cristo, vosso Filho, cheguemos pela sua Paixão e Cruz à glória da Ressurreição. Por Cristo, nosso Senhor. Amém.</p>
+        </article>
+
+        <article id="memorare" class="prayer-card">
+          <h3>Memorare</h3>
+          <p>Lembrai-vos, ó piíssima Virgem Maria, que nunca se ouviu dizer que algum daqueles que recorreram à vossa proteção, imploraram o vosso socorro e pediram o vosso auxílio, fosse abandonado.</p>
+          <p>Animado por esta confiança, a vós recorro, ó Virgem das virgens, minha Mãe; a vós venho, diante de vós me apresento cheio de pecados e gemendo. Ó Mãe do Verbo Encarnado, não desprezeis as minhas súplicas, mas ouvi-as e respondei-as propícia. Amém.</p>
+        </article>
+
+        <article id="magnificat" class="prayer-card prayer-card-wide">
+          <h3>Magnificat — Cântico de Nossa Senhora</h3>
+          <p>A minha alma glorifica ao Senhor, e o meu espírito exulta em Deus meu Salvador, porque olhou para a humildade da sua serva. Por isso, desde agora me chamarão bem-aventurada todas as gerações.</p>
+          <p>Porque o Todo-Poderoso fez grandes obras em meu favor: o seu nome é santo, e a sua misericórdia se estende, de geração em geração, sobre aqueles que o temem.</p>
+          <p>Manifestou o poder do seu braço, dispersou os soberbos de coração. Derrubou os poderosos de seus tronos e exaltou os humildes. Enriqueceu de bens os famintos e despediu os ricos de mãos vazias.</p>
+          <p>Socorreu Israel, seu servo, lembrando-se da sua misericórdia, como prometera aos nossos pais, a Abraão e a seus descendentes para sempre. Glória ao Pai, ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.</p>
         </article>
 
         <article id="credo" class="prayer-card prayer-card-wide">
-          <h3>Credo</h3>
-          <p>
-            Creio em Deus Pai todo-poderoso, criador do c&eacute;u e da terra; e em Jesus Cristo, seu &uacute;nico Filho, nosso Senhor; que foi concebido pelo poder do Esp&iacute;rito Santo; nasceu da Virgem Maria; padeceu sob P&ocirc;ncio Pilatos, foi crucificado, morto e sepultado.
-          </p>
-          <p>
-            Desceu &agrave; mans&atilde;o dos mortos; ressuscitou ao terceiro dia; subiu aos c&eacute;us; est&aacute; sentado &agrave; direita de Deus Pai todo-poderoso, donde h&aacute; de vir a julgar os vivos e os mortos.
-          </p>
-          <p>
-            Creio no Esp&iacute;rito Santo; na santa Igreja cat&oacute;lica; na comunh&atilde;o dos santos; na remiss&atilde;o dos pecados; na ressurrei&ccedil;&atilde;o da carne; na vida eterna. Am&eacute;m.
-          </p>
+          <h3>Credo Apostólico</h3>
+          <p>Creio em Deus Pai todo-poderoso, criador do céu e da terra; e em Jesus Cristo, seu único Filho, nosso Senhor; que foi concebido pelo poder do Espírito Santo; nasceu da Virgem Maria; padeceu sob Pôncio Pilatos, foi crucificado, morto e sepultado.</p>
+          <p>Desceu à mansão dos mortos; ressuscitou ao terceiro dia; subiu aos céus; está sentado à direita de Deus Pai todo-poderoso, donde há de vir a julgar os vivos e os mortos.</p>
+          <p>Creio no Espírito Santo; na santa Igreja católica; na comunhão dos santos; na remissão dos pecados; na ressurreição da carne; na vida eterna. Amém.</p>
         </article>
 
         <article id="manha" class="prayer-card">
-          <h3>Ora&ccedil;&atilde;o da manh&atilde;</h3>
-          <p>
-            Senhor, no sil&ecirc;ncio deste dia que nasce, venho pedir-vos paz, sabedoria e for&ccedil;a. Quero olhar hoje o mundo com olhos cheios de amor, ser paciente, compreensivo e manso.
-          </p>
-          <p>
-            Que eu veja al&eacute;m das apar&ecirc;ncias e reconhe&ccedil;a vossa presen&ccedil;a em cada pessoa. Am&eacute;m.
-          </p>
+          <h3>Oração da manhã</h3>
+          <p>Senhor, no silêncio deste dia que nasce, venho pedir-vos paz, sabedoria e força. Quero olhar hoje o mundo com olhos cheios de amor, ser paciente, compreensivo e manso.</p>
+          <p>Que eu veja além das aparências e reconheça vossa presença em cada pessoa. Amém.</p>
         </article>
 
         <article id="noite" class="prayer-card">
-          <h3>Ora&ccedil;&atilde;o da noite</h3>
-          <p>
-            Meu Deus, obrigado por este dia. Entrego em vossas m&atilde;os minhas alegrias, preocupa&ccedil;&otilde;es e tudo o que vivi.
-          </p>
-          <p>
-            Perdoai minhas faltas, guardai minha fam&iacute;lia e concedei-nos uma noite tranquila sob vossa prote&ccedil;&atilde;o. Am&eacute;m.
-          </p>
+          <h3>Oração da noite</h3>
+          <p>Meu Deus, obrigado por este dia. Entrego em vossas mãos minhas alegrias, preocupações e tudo o que vivi.</p>
+          <p>Perdoai minhas faltas, guardai minha família e concedei-nos uma noite tranquila sob vossa proteção. Amém.</p>
         </article>
 
         <article id="protecao" class="prayer-card">
-          <h3>Ora&ccedil;&atilde;o de prote&ccedil;&atilde;o</h3>
-          <p>
-            Senhor Jesus, cobri-me com vossa luz e guardai-me de todo mal. Protegei minha casa, minha fam&iacute;lia e meus caminhos.
-          </p>
-          <p>
-            Que vossa paz esteja comigo e que meu cora&ccedil;&atilde;o permane&ccedil;a firme na f&eacute;. Am&eacute;m.
-          </p>
+          <h3>Oração de proteção</h3>
+          <p>Senhor Jesus, cobri-me com vossa luz e guardai-me de todo mal. Protegei minha casa, minha família e meus caminhos.</p>
+          <p>Que vossa paz esteja comigo e que meu coração permaneça firme na fé. Amém.</p>
+        </article>
+
+        <article id="ato-contrição" class="prayer-card">
+          <h3>Ato de Contrição</h3>
+          <p>Meu Deus, pesa-me muito ter-vos ofendido, porque sois infinitamente bom e o pecado vos desagrada. Proponho firmemente, com o auxílio da vossa graça, emendar-me e evitar as ocasiões de pecar. Amém.</p>
+        </article>
+
+        <article id="consagracao" class="prayer-card">
+          <h3>Consagração a Maria</h3>
+          <p>Ó Maria, Mãe de Deus e Mãe nossa, consagro-me a vós inteiramente — minha alma, meu corpo, minha vida. Tomai conta de mim, protegei-me e levai-me a Jesus. Vós que sois a porta do céu, conduzi-me à vida eterna. Amém.</p>
         </article>
       </div>
     </section>
+
+    <!-- ════════════════ SANTOS ════════════════ -->
+    <section id="santos" class="saints-section content-section" aria-labelledby="saints-title">
+      <div class="section-heading">
+        <span class="section-icon" aria-hidden="true"></span>
+        <p class="eyebrow">Devoções</p>
+        <h2 id="saints-title">Santos de Devoção</h2>
+        <p class="section-desc">Conheça a história, as orações, os símbolos e as relíquias dos grandes santos da Igreja Católica.</p>
+      </div>
+
+      <div class="saints-tabs" role="tablist" aria-label="Santos">
+        <button class="saint-tab active" role="tab" data-saint="antônio" aria-selected="true">Santo Antônio</button>
+        <button class="saint-tab" role="tab" data-saint="francisco" aria-selected="false">São Francisco</button>
+        <button class="saint-tab" role="tab" data-saint="teresa" aria-selected="false">Santa Teresinha</button>
+        <button class="saint-tab" role="tab" data-saint="jorge" aria-selected="false">São Jorge</button>
+        <button class="saint-tab" role="tab" data-saint="padre-pio" aria-selected="false">Padre Pio</button>
+        <button class="saint-tab" role="tab" data-saint="rita" aria-selected="false">Santa Rita</button>
+        <button class="saint-tab" role="tab" data-saint="bento" aria-selected="false">São Bento</button>
+        <button class="saint-tab" role="tab" data-saint="judas-tadeu" aria-selected="false">São Judas Tadeu</button>
+        <button class="saint-tab" role="tab" data-saint="clara" aria-selected="false">Santa Clara</button>
+      </div>
+
+      <div class="saint-panels">
+
+        <!-- SANTO ANTÔNIO -->
+        <div class="saint-panel active" data-panel="antônio">
+          <div class="saint-header">
+            <div class="saint-badge">
+              <span class="saint-initial">A</span>
+            </div>
+            <div class="saint-meta">
+              <h3>Santo Antônio de Pádua</h3>
+              <p class="saint-dates">1195 – 1231 · Festa: 13 de junho</p>
+              <p class="saint-patrono">Padroeiro dos pobres, dos perdidos, dos noivos e das causas impossíveis</p>
+            </div>
+          </div>
+          <div class="saint-body">
+            <div class="saint-history">
+              <h4>História</h4>
+              <p>Nascido em Lisboa, Portugal, com o nome de Fernando, ingressou na Ordem dos Franciscanos em 1220 após ser profundamente tocado pelo martírio de cinco frades franciscanos no Marrocos. Adotou o nome de Antônio e se tornou um dos mais brilhantes pregadores de seu tempo.</p>
+              <p>Conhecido pela sua profunda sabedoria e dons sobrenaturais, realizou inúmeros milagres em vida. A lenda do sermão aos peixes e a aparição do Menino Jesus em seus braços são as mais célebres. Morreu aos 36 anos em Pádua, Itália, onde está sepultado na Basílica de Santo Antônio.</p>
+            </div>
+            <div class="saint-symbols">
+              <h4>Símbolos e Atributos</h4>
+              <ul class="symbol-list">
+                <li><span class="sym-icon"></span> Livro — representa sua sabedoria e pregação</li>
+                <li><span class="sym-icon"></span> Menino Jesus — visão que recebeu</li>
+                <li><span class="sym-icon"></span> Lírios brancos — pureza e virgindade</li>
+                <li><span class="sym-icon"></span> Chama — ardor pela fé</li>
+              </ul>
+            </div>
+            <div class="saint-relics">
+              <h4>Relíquias</h4>
+              <p>Suas relíquias estão preservadas na <strong>Basílica de Santo Antônio</strong> em Pádua, Itália. A língua e a mandíbula do santo foram encontradas incorruptas quando seu corpo foi trasladado em 1263, o que São Boaventura atribuiu ao dom da pregação. Relíquias menores estão espalhadas por todo o mundo.</p>
+            </div>
+            <div class="saint-prayer">
+              <h4>Oração a Santo Antônio</h4>
+              <blockquote class="saint-quote">
+                Santo Antônio, glorioso confessor e pai dos pobres, que mereceste a graça de ver o Menino Jesus em vossos braços, intercedei por mim junto a Deus para que Ele me conceda a graça que humildemente vos peço. Amém.
+              </blockquote>
+            </div>
+            <div class="saint-terco">
+              <h4>Terço de Santo Antônio</h4>
+              <p>O terço de Santo Antônio é rezado às terças-feiras (dia dedicado ao santo). Inicia-se com o Credo, seguido de 1 Pai Nosso e 3 Ave Marias em louvor ao Menino Jesus, depois 13 grupos de 1 Pai Nosso e 3 Ave Marias — em memória dos 13 milagres do santo — e encerra-se com a Glória ao Pai e a oração final ao santo.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SÃO FRANCISCO -->
+        <div class="saint-panel" data-panel="francisco">
+          <div class="saint-header">
+            <div class="saint-badge" style="--badge-color:#7a5c2e;">
+              <span class="saint-initial">F</span>
+            </div>
+            <div class="saint-meta">
+              <h3>São Francisco de Assis</h3>
+              <p class="saint-dates">1181 – 1226 · Festa: 4 de outubro</p>
+              <p class="saint-patrono">Padroeiro da ecologia, dos animais, da Itália e dos pobres</p>
+            </div>
+          </div>
+          <div class="saint-body">
+            <div class="saint-history">
+              <h4>História</h4>
+              <p>Filho de um rico comerciante de tecidos em Assis, Francisco viveu uma juventude de festas e ambições militares. Após uma experiência mística e uma doença prolongada, sentiu a voz de Cristo dizendo-lhe: "Francisco, vai e reconstrói minha casa." Abandonou tudo e fundou a Ordem dos Frades Menores (franciscanos).</p>
+              <p>Conhecido pelo amor radical à pobreza e aos animais, pregou o Evangelho com alegria. Em 1224, dois anos antes de morrer, recebeu as estigmas — as chagas de Cristo — em seu corpo. Foi canonizado apenas dois anos após sua morte.</p>
+            </div>
+            <div class="saint-symbols">
+              <h4>Símbolos e Atributos</h4>
+              <ul class="symbol-list">
+                <li><span class="sym-icon"></span> Pomba — paz e amor à criação</li>
+                <li><span class="sym-icon"></span> Estigmas — chagas de Cristo</li>
+                <li><span class="sym-icon"></span> Lobo manso — o lobo de Gubbio domesticado</li>
+                <li><span class="sym-icon"></span> Natureza — amor às criaturas</li>
+              </ul>
+            </div>
+            <div class="saint-relics">
+              <h4>Relíquias</h4>
+              <p>O corpo de São Francisco é venerado na cripta da Basílica de São Francisco, em Assis, construída para guardar sua memória e acolher peregrinos. Ali também se conservam testemunhos ligados à sua vida pobre, como objetos de uso simples e documentos da espiritualidade franciscana.</p>
+            </div>
+            <div class="saint-prayer">
+              <h4>Oração de São Francisco (Instrumento de Paz)</h4>
+              <blockquote class="saint-quote">
+                Senhor, fazei-me instrumento de vossa paz. Onde houver ódio, que eu leve o amor; onde houver ofensa, que eu leve o perdão; onde houver discórdia, que eu leve a união; onde houver dúvida, que eu leve a fé; onde houver erro, que eu leve a verdade; onde houver desespero, que eu leve a esperança; onde houver tristeza, que eu leve a alegria; onde houver trevas, que eu leve a luz.
+                <br><br>
+                Ó Mestre, fazei que eu procure não ser consolado, mas consolar; não ser compreendido, mas compreender; não ser amado, mas amar. Pois é dando que se recebe; é perdoando que se é perdoado; e é morrendo que se vive para a vida eterna. Amém.
+              </blockquote>
+            </div>
+            <div class="saint-terco">
+              <h4>Coroa Franciscana</h4>
+              <p>A Coroa Franciscana, também chamada Rosário das Sete Alegrias de Maria, é uma devoção querida pela família franciscana. Reza-se meditando a Anunciação, a Visitação, o Nascimento de Jesus, a adoração dos Magos, o encontro de Jesus no Templo, a Ressurreição e a Assunção e Coroação de Maria.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SANTA TERESINHA -->
+        <div class="saint-panel" data-panel="teresa">
+          <div class="saint-header">
+            <div class="saint-badge" style="--badge-color:#8b3a62;">
+              <span class="saint-initial">T</span>
+            </div>
+            <div class="saint-meta">
+              <h3>Santa Teresinha do Menino Jesus</h3>
+              <p class="saint-dates">1873 – 1897 · Festa: 1º de outubro</p>
+              <p class="saint-patrono">Padroeira das missões, da França e dos aviadores · Doutora da Igreja</p>
+            </div>
+          </div>
+          <div class="saint-body">
+            <div class="saint-history">
+              <h4>História</h4>
+              <p>Thérèse Martin nasceu em Alençon, na França. Filha de Luís e Zélia Martin — ambos canonizados em 2015 — manifestou desde criança uma fé profunda. Aos 15 anos entrou no Carmelo de Lisieux e viveu uma vida de aparente simplicidade e escondimento.</p>
+              <p>Descobriu o que chamou de "pequeno caminho" — a via da infância espiritual, na qual a alma se faz pequena diante de Deus e confia totalmente em sua misericórdia. Morreu de tuberculose aos 24 anos. Seu livro <em>História de uma Alma</em> tornou-se um dos mais lidos na espiritualidade cristã. Foi proclamada Doutora da Igreja em 1997.</p>
+            </div>
+            <div class="saint-symbols">
+              <h4>Símbolos e Atributos</h4>
+              <ul class="symbol-list">
+                <li><span class="sym-icon"></span> Rosas — prometeu "fazer chover rosas" do céu</li>
+                <li><span class="sym-icon"></span> Cruz com rosas — sofrimento unido ao amor</li>
+                <li><span class="sym-icon"></span> História de uma Alma — sua autobiografia</li>
+              </ul>
+            </div>
+            <div class="saint-relics">
+              <h4>Relíquias</h4>
+              <p>As relíquias de Santa Teresinha são veneradas especialmente em Lisieux, na França, junto ao Carmelo onde ela viveu e morreu. Relicários com seus restos mortais também peregrinaram por muitos países, despertando devoção, conversões e pedidos de intercessão.</p>
+            </div>
+            <div class="saint-prayer">
+              <h4>Oração a Santa Teresinha</h4>
+              <blockquote class="saint-quote">
+                Santa Teresinha do Menino Jesus, que prometestes passar vosso céu fazendo o bem na terra, olhai por mim neste momento de necessidade. Intercedei por mim junto a Deus, para que eu receba a graça que vos peço. Enviai-me uma rosa como sinal de que minha oração foi escutada. Amém.
+              </blockquote>
+            </div>
+            <div class="saint-terco">
+              <h4>Novena das Rosas</h4>
+              <p>A Novena das Rosas é uma devoção popular inspirada na promessa de Santa Teresinha de fazer o bem na terra depois de sua morte. Durante nove dias, reza-se pedindo a graça de viver o pequeno caminho: confiança, simplicidade, amor nas pequenas coisas e entrega total à misericórdia de Deus.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SÃO JORGE -->
+        <div class="saint-panel" data-panel="jorge">
+          <div class="saint-header">
+            <div class="saint-badge" style="--badge-color:#1a3a6b;">
+              <span class="saint-initial">J</span>
+            </div>
+            <div class="saint-meta">
+              <h3>São Jorge</h3>
+              <p class="saint-dates">† c. 303 · Festa: 23 de abril</p>
+              <p class="saint-patrono">Padroeiro da Inglaterra, Portugal, soldados e escoteiros</p>
+            </div>
+          </div>
+          <div class="saint-body">
+            <div class="saint-history">
+              <h4>História</h4>
+              <p>São Jorge foi um soldado romano de origem capadócia (atual Turquia) que serviu no exército do imperador Diocleciano. Quando o imperador ordenou a perseguição aos cristãos, Jorge declarou publicamente sua fé e se recusou a apoiar a perseguição, sendo preso e martirizado em Lydda (atual Israel) por volta do ano 303.</p>
+              <p>A lenda do dragão — na qual Jorge livra uma cidade de um monstro que exigia vítimas humanas — é uma alegoria do triunfo da fé cristã sobre o mal. Embora seja uma narrativa simbólica, expressa o espírito de coragem e proteção que caracteriza sua devoção em todo o mundo.</p>
+            </div>
+            <div class="saint-symbols">
+              <h4>Símbolos e Atributos</h4>
+              <ul class="symbol-list">
+                <li><span class="sym-icon"></span> Espada — coragem diante do mal</li>
+                <li><span class="sym-icon"></span> Escudo com cruz — defesa da fé cristã</li>
+                <li><span class="sym-icon"></span> Dragão — imagem simbólica do pecado vencido</li>
+                <li><span class="sym-icon"></span> Cavalo branco — prontidão e nobreza na luta espiritual</li>
+              </ul>
+            </div>
+            <div class="saint-relics">
+              <h4>Relíquias</h4>
+              <p>A antiga tradição localiza sua veneração principal em Lydda, hoje Lod, na Terra Santa, onde há uma igreja dedicada a São Jorge e memória de seu martírio. Relíquias atribuídas ao santo também são veneradas em diversos santuários cristãos, especialmente no Oriente e na Europa.</p>
+            </div>
+            <div class="saint-prayer">
+              <h4>Oração a São Jorge</h4>
+              <blockquote class="saint-quote">
+                São Jorge, cavaleiro valente, que com a espada da fé vencestes o dragão do mal: cobri-me com vosso escudo e protegei-me de todo perigo. Dai-me coragem para lutar o bom combate da vida e fé inabalável em Deus. Amém.
+              </blockquote>
+            </div>
+            <div class="saint-terco">
+              <h4>Terço de São Jorge</h4>
+              <p>Na devoção popular, o terço de São Jorge é rezado pedindo coragem, proteção e fidelidade a Cristo. Pode começar com o Credo, 1 Pai Nosso, 3 Ave Marias e o Glória; nas dezenas, medita-se a vitória da fé sobre o medo e repete-se uma breve invocação ao santo para permanecer firme no bom combate.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PADRE PIO -->
+        <div class="saint-panel" data-panel="padre-pio">
+          <div class="saint-header">
+            <div class="saint-badge" style="--badge-color:#2d4a1e;">
+              <span class="saint-initial">P</span>
+            </div>
+            <div class="saint-meta">
+              <h3>São Pio de Pietrelcina (Padre Pio)</h3>
+              <p class="saint-dates">1887 – 1968 · Festa: 23 de setembro</p>
+              <p class="saint-patrono">Padroeiro do alívio do estresse e das vítimas civis de guerra</p>
+            </div>
+          </div>
+          <div class="saint-body">
+            <div class="saint-history">
+              <h4>História</h4>
+              <p>Francisco Forgione nasceu em Pietrelcina, sul da Itália. Ordenado padre capuchinho em 1910, recebeu em 1918 as estigmas — as chagas da crucificação de Cristo —, que carregou visivelmente por 50 anos até sua morte. Pio de Pietrelcina era também conhecido por dons de bilocação, leitura de corações, curas milagrosas e a constante presença de fragrância de rosas e violetas.</p>
+              <p>Celebrava missas de até seis horas, passava longas horas no confessionário e fundou a <em>Casa Alívio do Sofrimento</em>, um hospital para os pobres. Foi canonizado por João Paulo II em 2002.</p>
+            </div>
+            <div class="saint-symbols">
+              <h4>Símbolos e Atributos</h4>
+              <ul class="symbol-list">
+                <li><span class="sym-icon"></span> Luvas — usava para cobrir as estigmas</li>
+                <li><span class="sym-icon"></span> Perfume de rosas — sinal de sua presença espiritual</li>
+                <li><span class="sym-icon"></span> Terço — rezava incessantemente</li>
+              </ul>
+            </div>
+            <div class="saint-relics">
+              <h4>Relíquias</h4>
+              <p>Seu corpo é venerado em San Giovanni Rotondo, no santuário ligado à igreja de Santa Maria das Graças, lugar marcado por suas missas, confissões e obras de caridade. Objetos pessoais, luvas e hábitos associados à sua vida religiosa também alimentam a devoção dos fiéis.</p>
+            </div>
+            <div class="saint-prayer">
+              <h4>Oração ao Padre Pio</h4>
+              <blockquote class="saint-quote">
+                São Pio de Pietrelcina, que participastes das chagas de Cristo e intercedestes por tantos enfermos e pecadores: olhai por mim com compaixão. Obtende-me de Deus a graça de que necessito e a força para carregar minha cruz com amor. Amém.
+              </blockquote>
+            </div>
+            <div class="saint-terco">
+              <h4>Terço com Padre Pio</h4>
+              <p>Padre Pio chamava o Rosário de sua arma espiritual e recomendava que fosse rezado todos os dias. A devoção pode ser feita oferecendo cada dezena pelos enfermos, pelos pecadores, pelas famílias, pelos sacerdotes e por quem sofre, pedindo a intercessão do santo para carregar a cruz com fé.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SANTA RITA -->
+        <div class="saint-panel" data-panel="rita">
+          <div class="saint-header">
+            <div class="saint-badge" style="--badge-color:#6b2d42;">
+              <span class="saint-initial">R</span>
+            </div>
+            <div class="saint-meta">
+              <h3>Santa Rita de Cássia</h3>
+              <p class="saint-dates">1381 – 1457 · Festa: 22 de maio</p>
+              <p class="saint-patrono">Padroeira das causas impossíveis e das mulheres maltratadas</p>
+            </div>
+          </div>
+          <div class="saint-body">
+            <div class="saint-history">
+              <h4>História</h4>
+              <p>Rita nasceu em Roccaporena, Itália. Desejou desde jovem ser religiosa, mas casou-se a pedido de seus pais. Seu marido era difícil e violento; ela o converteu com paciência e amor. Após a morte do marido e de seus filhos, entrou no convento agostiniano de Cássia.</p>
+              <p>Pediu a Jesus que a fizesse participar de sua Paixão; um espinho da coroa de Cristo cravou-se em sua testa, deixando uma ferida que carregou até a morte. É venerada como a santa das causas impossíveis, especialmente por mulheres em situações difíceis.</p>
+            </div>
+            <div class="saint-symbols">
+              <h4>Símbolos e Atributos</h4>
+              <ul class="symbol-list">
+                <li><span class="sym-icon">🌹</span> Rosa — sinal de graças recebidas e esperança</li>
+                <li><span class="sym-icon">🌿</span> Espinho — participação na Paixão de Cristo</li>
+                <li><span class="sym-icon">✝</span> Crucifixo — amor fiel mesmo no sofrimento</li>
+                <li><span class="sym-icon">🕯</span> Luz — perseverança nas causas difíceis</li>
+              </ul>
+            </div>
+            <div class="saint-relics">
+              <h4>Relíquias</h4>
+              <p>O corpo de Santa Rita é venerado no Santuário de Santa Rita, em Cássia, na Itália. O local recebe peregrinos do mundo inteiro, especialmente pessoas que buscam reconciliação, cura interior, proteção para a família e auxílio em causas consideradas impossíveis.</p>
+            </div>
+            <div class="saint-prayer">
+              <h4>Oração a Santa Rita</h4>
+              <blockquote class="saint-quote">
+                Santa Rita de Cássia, advogada dos impossíveis: apresentai minha causa ao Todo-Poderoso. Vós que sofrestes a dolorosa chaga da coroa de espinhos, sabeis o que é a dor e a perseverança na fé. Intercedei por mim junto a Deus e ajudai-me nesta hora difícil. Amém.
+              </blockquote>
+            </div>
+            <div class="saint-terco">
+              <h4>Novena de Santa Rita</h4>
+              <p>A novena de Santa Rita é rezada durante nove dias, pedindo perseverança, reconciliação e confiança quando uma situação parece sem saída. Muitos fiéis também oferecem rosas em sua festa, recordando que Deus pode fazer florescer esperança mesmo nos períodos mais dolorosos.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SÃO BENTO -->
+        <div class="saint-panel" data-panel="bento">
+          <div class="saint-header">
+            <div class="saint-badge" style="--badge-color:#1f2f22;">
+              <span class="saint-initial">B</span>
+            </div>
+            <div class="saint-meta">
+              <h3>São Bento de Núrsia</h3>
+              <p class="saint-dates">c. 480 – 547 · Festa: 11 de julho</p>
+              <p class="saint-patrono">Padroeiro da Europa, dos monges, dos estudantes e protetor contra tentações</p>
+            </div>
+          </div>
+          <div class="saint-body">
+            <div class="saint-history">
+              <h4>História</h4>
+              <p>São Bento nasceu em Núrsia, na Itália, e ainda jovem deixou os estudos em Roma para buscar uma vida de oração e silêncio. Viveu como eremita em Subiaco e, depois, reuniu discípulos que desejavam seguir uma vida de disciplina espiritual, trabalho e louvor a Deus.</p>
+              <p>Fundou o mosteiro de Monte Cassino e escreveu a Regra de São Bento, marcada pelo equilíbrio entre oração, trabalho, leitura espiritual e vida comunitária. Sua espiritualidade é resumida pela expressão <em>Ora et Labora</em>: reza e trabalha.</p>
+            </div>
+            <div class="saint-symbols">
+              <h4>Símbolos e Atributos</h4>
+              <ul class="symbol-list">
+                <li><span class="sym-icon">✝</span> Cruz — confiança na vitória de Cristo</li>
+                <li><span class="sym-icon">🏅</span> Medalha de São Bento — sinal de proteção espiritual</li>
+                <li><span class="sym-icon">📖</span> Regra — sabedoria para a vida monástica</li>
+                <li><span class="sym-icon">🍞</span> Pão — recorda milagres e a providência divina</li>
+              </ul>
+            </div>
+            <div class="saint-relics">
+              <h4>Relíquias</h4>
+              <p>A tradição liga São Bento especialmente ao Mosteiro de Monte Cassino, na Itália, centro espiritual da Ordem Beneditina. Relíquias associadas a ele e a Santa Escolástica também são veneradas em comunidades beneditinas, mantendo viva sua memória de oração e santidade.</p>
+            </div>
+            <div class="saint-prayer">
+              <h4>Oração a São Bento</h4>
+              <blockquote class="saint-quote">
+                Ó glorioso São Bento, modelo de oração, humildade e trabalho, intercedei por mim junto a Deus. Afastai de minha vida todo mal, toda tentação e tudo aquilo que me separa de Cristo. Dai-me coragem para viver com fé, disciplina e paz. Pela cruz de Nosso Senhor Jesus Cristo, protegei minha casa, minha família e meus caminhos. Amém.
+              </blockquote>
+            </div>
+            <div class="saint-terco">
+              <h4>Medalha de São Bento</h4>
+              <p>A Medalha de São Bento é usada como sinal de fé e pedido de proteção. Sua inscrição recorda a força da cruz e convida o fiel a rejeitar o mal, permanecer unido a Cristo e buscar uma vida de oração, sobriedade e perseverança.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SÃO JUDAS TADEU -->
+        <div class="saint-panel" data-panel="judas-tadeu">
+          <div class="saint-header">
+            <div class="saint-badge" style="--badge-color:#704f18;">
+              <span class="saint-initial">J</span>
+            </div>
+            <div class="saint-meta">
+              <h3>São Judas Tadeu</h3>
+              <p class="saint-dates">Século I · Festa: 28 de outubro</p>
+              <p class="saint-patrono">Padroeiro das causas difíceis, urgentes e desesperadas</p>
+            </div>
+          </div>
+          <div class="saint-body">
+            <div class="saint-history">
+              <h4>História</h4>
+              <p>São Judas Tadeu foi um dos doze apóstolos de Jesus e não deve ser confundido com Judas Iscariotes. Segundo a tradição, pregou o Evangelho na Judeia, Mesopotâmia e Pérsia, levando a fé cristã a povos que ainda não conheciam Cristo.</p>
+              <p>É venerado como intercessor nas causas difíceis porque permaneceu fiel a Jesus mesmo em meio à perseguição. A ele é atribuída a Carta de Judas, breve texto do Novo Testamento que exorta os cristãos a perseverarem na fé recebida.</p>
+            </div>
+            <div class="saint-symbols">
+              <h4>Símbolos e Atributos</h4>
+              <ul class="symbol-list">
+                <li><span class="sym-icon">🔥</span> Chama — presença do Espírito Santo em Pentecostes</li>
+                <li><span class="sym-icon">🪙</span> Medalhão de Cristo — imagem de sua proximidade com Jesus</li>
+                <li><span class="sym-icon">📜</span> Carta — referência à Epístola de Judas</li>
+                <li><span class="sym-icon">🪓</span> Machado — símbolo tradicional de seu martírio</li>
+              </ul>
+            </div>
+            <div class="saint-relics">
+              <h4>Relíquias</h4>
+              <p>Relíquias de São Judas Tadeu são veneradas na Basílica de São Pedro, em Roma, junto às de São Simão, com quem a tradição associa sua missão e martírio. Sua devoção é muito forte entre pessoas que buscam esperança em situações humanamente difíceis.</p>
+            </div>
+            <div class="saint-prayer">
+              <h4>Oração a São Judas Tadeu</h4>
+              <blockquote class="saint-quote">
+                São Judas Tadeu, apóstolo fiel de Jesus, intercedei por mim nesta necessidade. Vós que sois invocado nas causas difíceis, apresentai minha súplica ao Senhor e ajudai-me a conservar a esperança, a fé e a coragem. Que eu confie sempre na misericórdia de Deus. Amém.
+              </blockquote>
+            </div>
+            <div class="saint-terco">
+              <h4>Novena das causas difíceis</h4>
+              <p>A novena a São Judas Tadeu é rezada durante nove dias, pedindo luz para decisões, força na espera e confiança quando uma causa parece impossível. É comum encerrá-la com um Pai Nosso, uma Ave Maria e um Glória ao Pai.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SANTA CLARA -->
+        <div class="saint-panel" data-panel="clara">
+          <div class="saint-header">
+            <div class="saint-badge" style="--badge-color:#8a7a35;">
+              <span class="saint-initial">C</span>
+            </div>
+            <div class="saint-meta">
+              <h3>Santa Clara de Assis</h3>
+              <p class="saint-dates">1194 – 1253 · Festa: 11 de agosto</p>
+              <p class="saint-patrono">Padroeira da televisão, das comunicações e das clarissas</p>
+            </div>
+          </div>
+          <div class="saint-body">
+            <div class="saint-history">
+              <h4>História</h4>
+              <p>Santa Clara nasceu em Assis, em família nobre, e foi profundamente tocada pela pregação de São Francisco. Aos 18 anos deixou a casa paterna para consagrar-se a Deus, assumindo uma vida de pobreza, oração e simplicidade radical.</p>
+              <p>Fundou a Ordem das Damas Pobres, mais tarde conhecida como Ordem de Santa Clara ou Clarissas. Sua vida foi marcada pela adoração eucarística, pela confiança na providência e pela firmeza em defender o ideal de pobreza evangélica.</p>
+            </div>
+            <div class="saint-symbols">
+              <h4>Símbolos e Atributos</h4>
+              <ul class="symbol-list">
+                <li><span class="sym-icon">☀</span> Luz — clareza da fé e do testemunho</li>
+                <li><span class="sym-icon">✝</span> Cruz — entrega total a Cristo pobre</li>
+                <li><span class="sym-icon">🍷</span> Ostensório — devoção profunda à Eucaristia</li>
+                <li><span class="sym-icon">🌿</span> Ramo — simplicidade e vida fraterna</li>
+              </ul>
+            </div>
+            <div class="saint-relics">
+              <h4>Relíquias</h4>
+              <p>Seu corpo é venerado na Basílica de Santa Clara, em Assis, onde também se conserva o Crucifixo de São Damião, diante do qual São Francisco escutou o chamado de Cristo. O lugar é um dos grandes centros da espiritualidade franciscana.</p>
+            </div>
+            <div class="saint-prayer">
+              <h4>Oração a Santa Clara</h4>
+              <blockquote class="saint-quote">
+                Santa Clara, mulher de fé luminosa e coração simples, ensinai-me a buscar Jesus acima de tudo. Intercedei por mim para que eu viva com humildade, pureza, coragem e amor aos pobres. Que minha vida seja luz serena para quem caminha ao meu lado. Amém.
+              </blockquote>
+            </div>
+            <div class="saint-terco">
+              <h4>Devoção a Santa Clara</h4>
+              <p>Santa Clara é invocada por quem deseja crescer na oração, na confiança e na fidelidade ao Evangelho. Sua devoção costuma ser feita com momentos de silêncio diante do Santíssimo Sacramento, oferecendo a Deus a própria vida com simplicidade.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.saint-panels -->
+    </section>
+
+    <!-- ════════════════ TERÇO ════════════════ -->
+    <section id="terco" class="rosary-section content-section" aria-labelledby="rosary-title">
+      <div class="section-heading">
+        <span class="section-icon" aria-hidden="true">📿</span>
+        <p class="eyebrow">Devoção mariana</p>
+        <h2 id="rosary-title">Como Rezar o Terço</h2>
+      </div>
+
+      <div class="rosary-intro">
+        <p>O Santo Terço (ou Rosário) é uma das orações mais antigas e preciosas da Igreja Católica. É meditação dos mistérios da vida de Jesus e Maria, rezada com as contas do rosário. Nossa Senhora de Fátima pediu que o rezássemos todos os dias.</p>
+      </div>
+
+      <div class="rosary-steps">
+        <div class="rosary-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Início — Cruz do Rosário</h4>
+            <p>Segure o crucifixo e reze o <strong>Credo</strong> em honra à fé.</p>
+          </div>
+        </div>
+        <div class="rosary-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Primeira conta grande</h4>
+            <p>Reze 1 <strong>Pai Nosso</strong> — pelas intenções do Papa.</p>
+          </div>
+        </div>
+        <div class="rosary-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Três contas pequenas</h4>
+            <p>Reze 3 <strong>Ave Marias</strong> — pelas virtudes da fé, esperança e caridade.</p>
+          </div>
+        </div>
+        <div class="rosary-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>Glória ao Pai</h4>
+            <p>Reze 1 <strong>Glória ao Pai</strong> e, opcionalmente, a Jaculatória de Fátima: <em>"Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno, levai as almas todas para o Céu, especialmente as que mais precisarem."</em></p>
+          </div>
+        </div>
+        <div class="rosary-step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h4>Anunciar o Mistério</h4>
+            <p>Anuncia-se o mistério correspondente ao dia e meditamos brevemente nele.</p>
+          </div>
+        </div>
+        <div class="rosary-step">
+          <div class="step-number">6</div>
+          <div class="step-content">
+            <h4>Uma dezena completa</h4>
+            <p>1 <strong>Pai Nosso</strong> + 10 <strong>Ave Marias</strong> + 1 <strong>Glória ao Pai</strong> + Jaculatória. Repete-se isso por 5 décadas (mistérios).</p>
+          </div>
+        </div>
+        <div class="rosary-step">
+          <div class="step-number">7</div>
+          <div class="step-content">
+            <h4>Encerramento</h4>
+            <p>Ao final das 5 décadas, reza-se a <strong>Salve Rainha</strong> e a Ladainha de Nossa Senhora (opcional).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mysteries-grid">
+        <div class="mystery-card">
+          <div class="mystery-day">Segunda e Sábado</div>
+          <h4>Mistérios Gozosos</h4>
+          <ol class="mystery-list">
+            <li>Anunciação do Anjo a Maria</li>
+            <li>Visitação de Maria a Isabel</li>
+            <li>Nascimento de Jesus em Belém</li>
+            <li>Apresentação de Jesus no Templo</li>
+            <li>Jesus encontrado no Templo</li>
+          </ol>
+        </div>
+        <div class="mystery-card">
+          <div class="mystery-day">Terça e Sexta</div>
+          <h4>Mistérios Dolorosos</h4>
+          <ol class="mystery-list">
+            <li>Agonia de Jesus no Horto</li>
+            <li>Flagelação de Jesus</li>
+            <li>Coroação de espinhos</li>
+            <li>Jesus carrega a Cruz</li>
+            <li>Crucificação e morte de Jesus</li>
+          </ol>
+        </div>
+        <div class="mystery-card">
+          <div class="mystery-day">Quarta e Domingo</div>
+          <h4>Mistérios Gloriosos</h4>
+          <ol class="mystery-list">
+            <li>Ressurreição de Jesus</li>
+            <li>Ascensão de Jesus ao Céu</li>
+            <li>Descida do Espírito Santo</li>
+            <li>Assunção de Maria ao Céu</li>
+            <li>Coroação de Maria como Rainha</li>
+          </ol>
+        </div>
+        <div class="mystery-card">
+          <div class="mystery-day">Quinta — João Paulo II</div>
+          <h4>Mistérios Luminosos</h4>
+          <ol class="mystery-list">
+            <li>Batismo de Jesus no Jordão</li>
+            <li>Casamento de Caná</li>
+            <li>Proclamação do Reino</li>
+            <li>Transfiguração de Jesus</li>
+            <li>Instituição da Eucaristia</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ ESTUDO ════════════════ -->
+    <section id="estudo" class="study-section content-section" aria-labelledby="study-title">
+      <div class="section-heading">
+        <span class="section-icon" aria-hidden="true">📖</span>
+        <p class="eyebrow">Formação da fé</p>
+        <h2 id="study-title">Estudo e História</h2>
+      </div>
+
+      <div class="study-tabs" role="tablist" aria-label="Temas de estudo">
+        <button class="study-tab active" role="tab" data-topic="jesus" aria-selected="true">Jesus Cristo</button>
+        <button class="study-tab" role="tab" data-topic="maria" aria-selected="false">Maria</button>
+        <button class="study-tab" role="tab" data-topic="discipulos" aria-selected="false">Os 12 Apóstolos</button>
+        <button class="study-tab" role="tab" data-topic="jose" aria-selected="false">São José</button>
+        <button class="study-tab" role="tab" data-topic="pedro" aria-selected="false">São Pedro</button>
+        <button class="study-tab" role="tab" data-topic="paulo" aria-selected="false">São Paulo</button>
+      </div>
+
+      <div class="study-panels">
+
+        <!-- JESUS -->
+        <div class="study-panel active" data-panel="jesus">
+          <div class="study-timeline">
+            <h3>Jesus Cristo — Filho de Deus feito homem</h3>
+            <p class="study-intro">Jesus de Nazaré é o centro da fé cristã. Acredita-se que é o Filho de Deus encarnado, o Messias prometido pelos profetas, que veio ao mundo para salvar a humanidade do pecado e da morte. Sua vida, morte e ressurreição transformaram a história.</p>
+
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-marker">~4 a.C.</div>
+                <div class="timeline-content">
+                  <strong>Nascimento em Belém</strong> — nasceu de Maria, virgem, sob a potestade de José, da tribo de Judá. Os anjos anunciaram seu nascimento aos pastores; os Magos do Oriente seguiram a estrela.
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-marker">~12 anos</div>
+                <div class="timeline-content">
+                  <strong>No Templo de Jerusalém</strong> — perdido pela família na Páscoa, foi encontrado no Templo discutindo com os doutores, surpreendendo a todos com sua sabedoria.
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-marker">~30 anos</div>
+                <div class="timeline-content">
+                  <strong>Batismo e início do ministério</strong> — João Batista o batizou no Jordão; o Espírito Santo desceu sobre ele como pomba e a voz do Pai proclamou: "Este é o meu Filho amado."
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-marker">3 anos</div>
+                <div class="timeline-content">
+                  <strong>Pregação, milagres e chamada dos apóstolos</strong> — percorreu a Galileia pregando o Evangelho, curando enfermos, multiplicando pães, ressuscitando mortos e chamando doze homens para segui-lo.
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-marker">~33 anos</div>
+                <div class="timeline-content">
+                  <strong>Paixão, Morte e Ressurreição</strong> — foi traído por Judas, julgado por Pilatos, crucificado no Calvário. Ressuscitou ao terceiro dia, apareceu aos discípulos e ascendeu ao Pai. No Pentecostes, enviou o Espírito Santo.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MARIA -->
+        <div class="study-panel" data-panel="maria">
+          <h3>Maria — Mãe de Deus e Mãe nossa</h3>
+          <p class="study-intro">Maria de Nazaré é a figura mais venerada no catolicismo após Jesus. Sua vida de fé, humildade e amor a torna modelo para todos os cristãos. A Igreja define quatro dogmas marianos: Maternidade Divina, Virgindade Perpétua, Imaculada Conceição e Assunção ao Céu.</p>
+
+          <div class="bio-grid">
+            <div class="bio-card">
+              <h4>Imaculada Conceição</h4>
+              <p>Maria foi preservada do pecado original desde o momento de sua concepção — um privilégio único concedido por Deus em vista dos méritos futuros de seu Filho. Dogma definido em 1854 por Pio IX.</p>
+            </div>
+            <div class="bio-card">
+              <h4>A Anunciação</h4>
+              <p>O Anjo Gabriel anunciou a Maria que ela seria Mãe do Filho de Deus. Ela respondeu: "Eis aqui a serva do Senhor; faça-se em mim segundo a vossa palavra." Esse sim de Maria mudou a história.</p>
+            </div>
+            <div class="bio-card">
+              <h4>Nossa Senhora nas Aparições</h4>
+              <p>Maria apareceu em Guadalupe (1531), Lourdes (1858) e Fátima (1917), entre outros locais. Em cada aparição, trouxe mensagens de conversão, oração e penitência, confirmadas pela Igreja.</p>
+            </div>
+            <div class="bio-card">
+              <h4>Assunção ao Céu</h4>
+              <p>Ao fim de sua vida terrena, Maria foi elevada em corpo e alma ao Céu — a Assunção. É celebrada em 15 de agosto. Dogma definido por Pio XII em 1950.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- DISCÍPULOS -->
+        <div class="study-panel" data-panel="discipulos">
+          <h3>Os 12 Apóstolos — Pilares da Igreja</h3>
+          <p class="study-intro">Jesus escolheu doze homens para serem seus testemunhos e os fundamentos de sua Igreja. Cada um tinha um perfil diferente — pescadores, coletores de impostos, zelotes — e todos (exceto João) morreram mártires pela fé.</p>
+
+          <div class="apostles-grid">
+            <div class="apostle-card">
+              <div class="apostle-num">1</div>
+              <h4>Pedro (Simão)</h4>
+              <p>Pescador da Galileia, irmão de André. Jesus o chamou de "Pedra" (Petros). Primeiro Papa da Igreja. Negou Jesus três vezes, mas foi restaurado. Mártir em Roma, crucificado de cabeça para baixo. Festa: 29 de junho.</p>
+            </div>
+            <div class="apostle-card">
+              <div class="apostle-num">2</div>
+              <h4>André</h4>
+              <p>Irmão de Pedro, primeiro discípulo chamado por Jesus. Pregou na Grécia, Ásia Menor e Rússia. Mártir crucificado numa cruz em X (Cruz de Santo André). Padroeiro da Escócia e Rússia. Festa: 30 de novembro.</p>
+            </div>
+            <div class="apostle-card">
+              <div class="apostle-num">3</div>
+              <h4>Tiago (o Maior)</h4>
+              <p>Filho de Zebedeu, irmão de João. Chamado "filho do trovão". Primeiro apóstolo mártir, decapitado por Herodes Agripa I em 44 d.C. Seu túmulo em Santiago de Compostela, Espanha, é um dos maiores destinos de peregrinação. Festa: 25 de julho.</p>
+            </div>
+            <div class="apostle-card">
+              <div class="apostle-num">4</div>
+              <h4>João</h4>
+              <p>Irmão de Tiago, discípulo amado. Jesus o entregou Maria aos seus cuidados da Cruz. Único apóstolo que não foi martirizado. Escreveu o Quarto Evangelho, as Cartas e o Apocalipse em Éfeso. Festa: 27 de dezembro.</p>
+            </div>
+            <div class="apostle-card">
+              <div class="apostle-num">5</div>
+              <h4>Filipe</h4>
+              <p>Natural de Betsaida. Trouxe Natanael a Jesus. Pregou na Frígia (atual Turquia) e foi martirizado em Hierápolis. Festa: 3 de maio.</p>
+            </div>
+            <div class="apostle-card">
+              <div class="apostle-num">6</div>
+              <h4>Bartolomeu (Natanael)</h4>
+              <p>Apresentado por Filipe. Jesus disse ao vê-lo: "É um israelita sem falsidade." Pregou na Armênia, India e Arábia. Foi esfolado vivo e decapitado. Padroeiro dos curtidores. Festa: 24 de agosto.</p>
+            </div>
+            <div class="apostle-card">
+              <div class="apostle-num">7</div>
+              <h4>Mateus (Levi)</h4>
+              <p>Cobrador de impostos chamado por Jesus. Escreveu o Primeiro Evangelho. Pregou na Etiópia e Pérsia. Mártir. Padroeiro dos contadores e banqueiros. Festa: 21 de setembro.</p>
+            </div>
+            <div class="apostle-card">
+              <div class="apostle-num">8</div>
+              <h4>Tomé</h4>
+              <p>Chamado "Dídimo" (gêmeo). Duvidou da ressurreição até tocar as chagas de Jesus. Pregou na Índia, onde fundou comunidades cristãs. Mártir em Mylapore. Padroeiro da Índia. Festa: 3 de julho.</p>
+            </div>
+            <div class="apostle-card">
+              <div class="apostle-num">9</div>
+              <h4>Tiago (o Menor)</h4>
+              <p>Filho de Alfeu, chamado "irmão do Senhor". Primeiro bispo de Jerusalém. Autor da Epístola de Tiago. Lançado do Templo e apedrejado por volta de 62 d.C. Festa: 3 de maio.</p>
+            </div>
+            <div class="apostle-card">
+              <div class="apostle-num">10</div>
+              <h4>Simão (o Zelote)</h4>
+              <p>Pertencia ao grupo dos zelotes, movimento político-religioso judaico. Pregou na Pérsia junto com Judas Tadeu. Mártir. Festa: 28 de outubro.</p>
+            </div>
+            <div class="apostle-card">
+              <div class="apostle-num">11</div>
+              <h4>Judas Tadeu (Lebeu)</h4>
+              <p>Autor da Epístola de Judas. Pregou na Mesopotâmia, Pérsia e Armênia. Mártir junto com Simão. Padroeiro das causas difíceis. Festa: 28 de outubro.</p>
+            </div>
+            <div class="apostle-card apostle-card-special">
+              <div class="apostle-num">12</div>
+              <h4>Judas Iscariotes → Matias</h4>
+              <p>Judas traiu Jesus por 30 moedas de prata e depois se suicidou. Em seu lugar, os apóstolos escolheram <strong>Matias</strong> (At 1,26) por sorteio, após oração. Matias pregou na Etiópia e Judeia; mártir por decapitação. Festa: 14 de maio.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SÃO JOSÉ -->
+        <div class="study-panel" data-panel="jose">
+          <h3>São José — Pai adotivo de Jesus</h3>
+          <p class="study-intro">José de Nazaré, descendente da tribo de Judá e da linhagem do Rei Davi, foi o esposo de Maria e o pai adotivo de Jesus. É o padroeiro da Igreja Universal, das famílias, dos trabalhadores e de uma boa morte.</p>
+          <div class="bio-grid">
+            <div class="bio-card">
+              <h4>Homem justo e obediente</h4>
+              <p>Diante da gravidez misteriosa de Maria, José quis repudiá-la em silêncio para não a expor. Mas o Anjo lhe apareceu em sonho e ele obedeceu sem hesitar, acolhendo Maria e o Filho de Deus.</p>
+            </div>
+            <div class="bio-card">
+              <h4>Protetor da Sagrada Família</h4>
+              <p>Foi José quem levou a Sagrada Família ao Egito para fugir de Herodes e quem os trouxe de volta a Nazaré. Trabalhou como carpinteiro para sustentar Jesus e Maria com os frutos de seu trabalho honesto.</p>
+            </div>
+            <div class="bio-card">
+              <h4>Patrono da boa morte</h4>
+              <p>Segundo a tradição, José morreu nos braços de Jesus e Maria. Por isso é invocado pelos agonizantes e é padroeiro de uma morte santa e serena.</p>
+            </div>
+            <div class="bio-card">
+              <h4>Oração a São José</h4>
+              <p><em>São José, guardador da Sagrada Família, protegei nossa família, nosso lar e nosso trabalho. Intercedei por nós para que, como vós, vivamos na fé, no amor e na obediência a Deus. Amém.</em></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SÃO PEDRO -->
+        <div class="study-panel" data-panel="pedro">
+          <h3>São Pedro — Primeiro Papa</h3>
+          <p class="study-intro">Simão Bar-Jona nasceu em Betsaida, na Galileia. Era pescador quando Jesus o chamou dizendo: "Segue-me e eu te farei pescador de homens." Recebeu o nome de Pedro (Rocha), tornando-se o líder dos apóstolos e o primeiro Bispo de Roma.</p>
+          <div class="bio-grid">
+            <div class="bio-card">
+              <h4>A Confissão de Cesareia</h4>
+              <p>Pedro foi o primeiro a proclamar: "Tu és o Cristo, o Filho do Deus vivo." Jesus respondeu: "Tu és Pedro e sobre esta pedra edificarei a minha Igreja, e as portas do inferno não prevalecerão contra ela."</p>
+            </div>
+            <div class="bio-card">
+              <h4>A Negação e a Restauração</h4>
+              <p>Pedro negou conhecer Jesus três vezes na noite de sua prisão. Após a Ressurreição, Jesus o restaurou três vezes perguntando: "Pedro, amas-me?" — confirmando sua missão de apascentar o rebanho.</p>
+            </div>
+            <div class="bio-card">
+              <h4>Roma e o Martírio</h4>
+              <p>Pedro presidiu a Igreja de Roma e foi martirizado pelo imperador Nero por volta de 67 d.C. Pediu para ser crucificado de cabeça para baixo por não se considerar digno de morrer como Jesus. Está sepultado sob a Basílica de São Pedro, no Vaticano.</p>
+            </div>
+            <div class="bio-card">
+              <h4>Escritos</h4>
+              <p>Pedro é autor de duas epístolas do Novo Testamento (1 Pedro e 2 Pedro), endereçadas às comunidades cristãs perseguidas. O Evangelho de Marcos é considerado o relato das pregações de Pedro.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SÃO PAULO -->
+        <div class="study-panel" data-panel="paulo">
+          <h3>São Paulo — Apóstolo dos Gentios</h3>
+          <p class="study-intro">Paulo de Tarso (nascido Saulo) nunca conheceu Jesus em vida, mas tornou-se o maior missionário da história cristã. Perseguidor dos cristãos, foi convertido por uma visão de Cristo ressuscitado no caminho de Damasco — uma das histórias mais dramáticas do Novo Testamento.</p>
+          <div class="bio-grid">
+            <div class="bio-card">
+              <h4>A Conversão no caminho de Damasco</h4>
+              <p>Saulo ia a Damasco para prender cristãos quando uma luz do céu o derrubou e ouviu: "Saulo, Saulo, por que me persegues?" Era Jesus. Ficou cego por três dias e foi batizado por Ananias. Tornou-se imediatamente pregador da fé que antes destruía.</p>
+            </div>
+            <div class="bio-card">
+              <h4>As Viagens Missionárias</h4>
+              <p>Paulo realizou três grandes viagens missionárias pelo Mediterrâneo — Ásia Menor, Grécia, Roma — fundando comunidades em Corinto, Filipos, Éfeso, Antioquia e outras cidades. Percorreu mais de 15.000 km pregando o Evangelho.</p>
+            </div>
+            <div class="bio-card">
+              <h4>As Epístolas</h4>
+              <p>Paulo escreveu 13 (ou 14) cartas do Novo Testamento, incluindo Romanos, Coríntios, Gálatas e Efésios — textos fundamentais da teologia cristã. Neles, aprofundou temas como graça, salvação, amor, unidade da Igreja e vida no Espírito.</p>
+            </div>
+            <div class="bio-card">
+              <h4>Martírio em Roma</h4>
+              <p>Paulo foi preso várias vezes e finalmente decapitado em Roma por volta de 67 d.C., sob o imperador Nero, no mesmo período que Pedro. Está sepultado na Basílica de São Paulo Extramuros. Festa: 29 de junho (com Pedro).</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.study-panels -->
+    </section>
+
   </main>
 
   <footer class="site-footer">
-    <p>Feito para um momento calmo de ora&ccedil;&atilde;o, leitura e f&eacute;.</p>
+    <div class="footer-inner">
+      <p class="footer-cross" aria-hidden="true">✦ ✝ ✦</p>
+      <p>Feito para um momento calmo de oração, leitura e fé.</p>
+      <p class="footer-note">Todas as orações e textos seguem a tradição da Igreja Católica Apostólica Romana.</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
