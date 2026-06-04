@@ -1,3 +1,5 @@
+export const config = { maxDuration: 30 };
+
 const CHRISTIAN_SYSTEM_PROMPT = `
 Você é o GODCHAT, um assistente de conversa espiritual cristão católico, em português do Brasil.
 
@@ -18,27 +20,39 @@ Limites importantes:
 Estilo:
 - Tom pastoral, sereno, simples e profundamente cristão.
 - Pode tratar a pessoa como irmão/irmã, filho/filha na fé, com delicadeza.
-- Respostas de 2 a 5 parágrafos, a menos que a pessoa peça algo longo.
+- Respostas de 2 a 4 parágrafos.
 `.trim();
 
+// Lê o body raw e faz parse — o Vercel NÃO popula req.body automaticamente
+function readBody(req) {
+  return new Promise((resolve, reject) => {
+    let raw = "";
+    req.on("data", (chunk) => { raw += chunk; });
+    req.on("end", () => {
+      try { resolve(JSON.parse(raw || "{}")); }
+      catch { resolve({}); }
+    });
+    req.on("error", reject);
+  });
+}
+
 function getProviderConfig() {
-  const requested = String(process.env.AI_PROVIDER || "").trim().toLowerCase();
+  const requested    = String(process.env.AI_PROVIDER || "").trim().toLowerCase();
   const anthropicKey = process.env.ANTHROPIC_API_KEY;
   const geminiKey    = process.env.GEMINI_API_KEY;
   const openaiKey    = process.env.OPENAI_API_KEY;
 
-  if (requested === "claude" || requested === "anthropic") {
-    return { provider: "anthropic", providerLabel: "Claude",   ready: Boolean(anthropicKey), model: process.env.ANTHROPIC_MODEL || "claude-sonnet-4-20250514" };
-  }
-  if (requested === "openai") {
-    return { provider: "openai",    providerLabel: "ChatGPT",  ready: Boolean(openaiKey),    model: process.env.OPENAI_MODEL    || "gpt-4o" };
-  }
-  if (requested === "gemini") {
-    return { provider: "gemini",    providerLabel: "Gemini",   ready: Boolean(geminiKey),    model: process.env.GEMINI_MODEL    || "gemini-2.5-flash" };
-  }
-  if (anthropicKey) return { provider: "anthropic", providerLabel: "Claude",  ready: true, model: process.env.ANTHROPIC_MODEL || "claude-sonnet-4-20250514" };
-  if (geminiKey)    return { provider: "gemini",    providerLabel: "Gemini",  ready: true, model: process.env.GEMINI_MODEL    || "gemini-2.5-flash" };
-  if (openaiKey)    return { provider: "openai",    providerLabel: "ChatGPT", ready: true, model: process.env.OPENAI_MODEL    || "gpt-4o" };
+  if (requested === "claude" || requested === "anthropic")
+    return { provider: "anthropic", providerLabel: "Claude",  ready: Boolean(anthropicKey), model: process.env.ANTHROPIC_MODEL || "claude-haiku-4-5-20251001" };
+  if (requested === "openai")
+    return { provider: "openai",    providerLabel: "ChatGPT", ready: Boolean(openaiKey),    model: process.env.OPENAI_MODEL    || "gpt-4o-mini" };
+  if (requested === "gemini")
+    return { provider: "gemini",    providerLabel: "Gemini",  ready: Boolean(geminiKey),    model: process.env.GEMINI_MODEL    || "gemini-2.0-flash" };
+
+  // auto-detect
+  if (anthropicKey) return { provider: "anthropic", providerLabel: "Claude",  ready: true, model: process.env.ANTHROPIC_MODEL || "claude-haiku-4-5-20251001" };
+  if (geminiKey)    return { provider: "gemini",    providerLabel: "Gemini",  ready: true, model: process.env.GEMINI_MODEL    || "gemini-2.0-flash" };
+  if (openaiKey)    return { provider: "openai",    providerLabel: "ChatGPT", ready: true, model: process.env.OPENAI_MODEL    || "gpt-4o-mini" };
 
   return { provider: "none", providerLabel: "nenhum", ready: false, model: "" };
 }
@@ -46,10 +60,10 @@ function getProviderConfig() {
 function normalizeMessages(messages) {
   if (!Array.isArray(messages)) return [];
   return messages
-    .slice(-10)
+    .slice(-6)  // menos mensagens = menos tokens de contexto
     .map((m) => ({
-      role: m && m.role === "assistant" ? "assistant" : "user",
-      content: String(m && m.content ? m.content : "").trim().slice(0, 1600)
+      role: m?.role === "assistant" ? "assistant" : "user",
+      content: String(m?.content || "").trim().slice(0, 800) // limite por mensagem
     }))
     .filter((m) => m.content);
 }
@@ -64,13 +78,13 @@ async function callAnthropic(messages, model) {
     },
     body: JSON.stringify({
       model,
-      max_tokens: 1000,
+      max_tokens: 60000,
       system: CHRISTIAN_SYSTEM_PROMPT,
       messages: messages.map((m) => ({ role: m.role, content: m.content }))
     })
   });
   const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data?.error?.message || "Erro ao chamar Claude.");
+  if (!res.ok) throw new Error(data?.error?.message || `Anthropic ${res.status}`);
   const text = Array.isArray(data.content)
     ? data.content.filter((b) => b.type === "text").map((b) => b.text).join("\n").trim()
     : "";
@@ -89,83 +103,69 @@ async function callGemini(messages, model) {
         role: m.role === "assistant" ? "model" : "user",
         parts: [{ text: m.content }]
       })),
-      generationConfig: { temperature: 0.72, topP: 0.9, maxOutputTokens: 1000 }
+      generationConfig: { temperature: 0.72, topP: 0.9, maxOutputTokens: 60000 }
     })
   });
   const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data?.error?.message || "Erro ao chamar Gemini.");
+  if (!res.ok) throw new Error(data?.error?.message || `Gemini ${res.status}`);
   const text = data.candidates?.[0]?.content?.parts?.map((p) => p.text || "").join("\n").trim() || "";
   if (!text) throw new Error("Gemini não retornou texto.");
   return text;
 }
 
-function buildTranscript(messages) {
-  return messages.map((m) => `${m.role === "assistant" ? "GODCHAT" : "Pessoa"}: ${m.content}`).join("\n\n");
-}
-
 async function callOpenAI(messages, model) {
-  const res = await fetch("https://api.openai.com/v1/responses", {
+  // Usa /v1/chat/completions (endpoint universal, mais confiável que /v1/responses)
+  const res = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${process.env.OPENAI_API_KEY}` },
     body: JSON.stringify({
       model,
-      instructions: CHRISTIAN_SYSTEM_PROMPT,
-      input: buildTranscript(messages),
-      max_output_tokens: 700,
-      store: false
+      max_tokens: 60000,
+      messages: [
+        { role: "system", content: CHRISTIAN_SYSTEM_PROMPT },
+        ...messages.map((m) => ({ role: m.role, content: m.content }))
+      ]
     })
   });
   const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data?.error?.message || "Erro ao chamar OpenAI.");
-  const text = data.output_text ||
-    (Array.isArray(data.output)
-      ? data.output.flatMap((i) => i.content || []).filter((p) => p.type === "output_text").map((p) => p.text).join("\n").trim()
-      : "");
+  if (!res.ok) throw new Error(data?.error?.message || `OpenAI ${res.status}`);
+  const text = data.choices?.[0]?.message?.content?.trim() || "";
   if (!text) throw new Error("OpenAI não retornou texto.");
-  return text.trim();
+  return text;
 }
 
-// ─── Vercel handler ──────────────────────────────────────────────────────────
 export default async function handler(req, res) {
-  // CORS para o mesmo domínio
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  if (req.method === "OPTIONS") {
-    res.status(204).end();
-    return;
-  }
-
-  if (req.method !== "POST") {
-    res.status(405).json({ error: "Método não permitido." });
-    return;
-  }
+  if (req.method === "OPTIONS") { res.status(204).end(); return; }
+  if (req.method !== "POST")    { res.status(405).json({ error: "Método não permitido." }); return; }
 
   const config = getProviderConfig();
-
   if (!config.ready) {
-    res.status(503).json({
-      error: "Configure ANTHROPIC_API_KEY, GEMINI_API_KEY ou OPENAI_API_KEY nas variáveis de ambiente do Vercel."
-    });
+    res.status(503).json({ error: "Nenhuma chave de IA configurada. Adicione ANTHROPIC_API_KEY, GEMINI_API_KEY ou OPENAI_API_KEY nas variáveis do Vercel." });
     return;
   }
 
-  const messages = normalizeMessages(req.body?.messages);
+  // Lê e parseia o body manualmente (req.body é undefined no Vercel sem body-parser)
+  const body = await readBody(req).catch(() => ({}));
+  const messages = normalizeMessages(body.messages);
 
   if (!messages.length) {
-    res.status(400).json({ error: "Escreva uma mensagem antes de enviar." });
+    res.status(400).json({ error: "Nenhuma mensagem recebida." });
     return;
   }
 
   try {
     let answer;
-    if (config.provider === "anthropic") answer = await callAnthropic(messages, config.model);
-    else if (config.provider === "gemini")   answer = await callGemini(messages, config.model);
-    else                                      answer = await callOpenAI(messages, config.model);
+    if      (config.provider === "anthropic") answer = await callAnthropic(messages, config.model);
+    else if (config.provider === "gemini")    answer = await callGemini(messages, config.model);
+    else                                       answer = await callOpenAI(messages, config.model);
 
     res.status(200).json({ answer, provider: config.provider, providerLabel: config.providerLabel, model: config.model });
   } catch (err) {
-    res.status(502).json({ error: err.message || "A IA não respondeu corretamente." });
+    console.error("[GODCHAT]", err.message);
+    res.status(502).json({ error: err.message || "A IA não respondeu." });
   }
 }

@@ -1,6 +1,5 @@
 {
   "rewrites": [
-    { "source": "/api/chat/status", "destination": "/api/chat-status" },
-    { "source": "/api/chat",        "destination": "/api/chat" }
+    { "source": "/api/chat/status", "destination": "/api/chat-status" }
   ]
 }

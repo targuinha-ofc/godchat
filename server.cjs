@@ -242,7 +242,7 @@ async function callAnthropic(messages, model) {
     },
     body: JSON.stringify({
       model,
-      max_tokens: 1000,
+      max_tokens: 999999,
       system: CHRISTIAN_SYSTEM_PROMPT,
       messages: messages.map((m) => ({
         role: m.role === "assistant" ? "assistant" : "user",
@@ -287,7 +287,7 @@ async function callGemini(messages, model) {
         generationConfig: {
           temperature: 0.72,
           topP: 0.9,
-          maxOutputTokens: 1000
+          maxOutputTokens: 999999,
         }
       })
     }
@@ -329,7 +329,7 @@ async function callOpenAI(messages, model) {
       model,
       instructions: CHRISTIAN_SYSTEM_PROMPT,
       input: buildTranscript(messages),
-      max_output_tokens: 700,
+      max_output_tokens: 9999999,
       store: false
     })
   });
@@ -431,7 +431,7 @@ server.listen(PORT, "127.0.0.1", () => {
   if (!config.ready) {
     console.log(`\nPara ativar o chat, adicione ao .env uma destas chaves:`);
     console.log(`  ANTHROPIC_API_KEY='sua-chave'   # Claude (recomendado)`);
-    console.log(`  GEMINI_API_KEY='sua-chave'       # Gemini`);
-    console.log(`  OPENAI_API_KEY='sua-chave'       # ChatGPT`);
+    console.log(`  GEMINI_API_KEY='AQ.Ab8RN6Iw4f5cQ242NYcea-vkH5DH3OEpoQ97YuSgiqzBun2-Hg'       # Gemini`);
+    console.log(`  OPENAI_API_KEY='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'       # ChatGPT`);
   }
 });
