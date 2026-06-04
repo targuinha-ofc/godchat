@@ -1,11 +1,8 @@
 {
-  "version": 2,
-  "builds": [
-    { "src": "api/chat.js",        "use": "@vercel/node" },
-    { "src": "api/chat-status.js", "use": "@vercel/node" }
-  ],
-  "routes": [
-    { "src": "/api/chat/status", "dest": "/api/chat-status.js" },
-    { "src": "/api/chat",        "dest": "/api/chat.js" }
+  "rewrites": [
+    {
+      "source": "/api/chat/status",
+      "destination": "/api/chat-status"
+    }
   ]
 }
