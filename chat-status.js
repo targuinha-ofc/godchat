@@ -1,4 +1,4 @@
-export const config = { maxDuration: 10 };
+// api/chat-status.js — Vercel Serverless Function (CommonJS)
 
 function getProviderConfig() {
   const requested    = String(process.env.AI_PROVIDER || "").trim().toLowerCase();
@@ -13,7 +13,6 @@ function getProviderConfig() {
   if (requested === "openai" && openaiKey)
     return { provider: "openai",    providerLabel: "ChatGPT", ready: true, model: process.env.OPENAI_MODEL    || "gpt-4o-mini" };
 
-  // Auto-detect
   if (anthropicKey) return { provider: "anthropic", providerLabel: "Claude",  ready: true, model: process.env.ANTHROPIC_MODEL || "claude-haiku-4-5-20251001" };
   if (geminiKey)    return { provider: "gemini",    providerLabel: "Gemini",  ready: true, model: process.env.GEMINI_MODEL    || "gemini-2.0-flash" };
   if (openaiKey)    return { provider: "openai",    providerLabel: "ChatGPT", ready: true, model: process.env.OPENAI_MODEL    || "gpt-4o-mini" };
@@ -21,9 +20,9 @@ function getProviderConfig() {
   return { provider: "none", providerLabel: "nenhum", ready: false, model: "" };
 }
 
-export default function handler(req, res) {
+module.exports = function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Cache-Control", "no-store");
   const c = getProviderConfig();
   res.status(200).json({ ready: c.ready, provider: c.provider, providerLabel: c.providerLabel, model: c.model });
-}
+};

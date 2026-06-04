@@ -169,7 +169,8 @@ async function sendFaithChatMessage(event) {
     const data = await res.json().catch(() => ({}));
 
     if (!res.ok) {
-      throw new Error(data.error || "Não foi possível responder agora.");
+      const detail = data.error || data.message || `Erro HTTP ${res.status}`;
+      throw new Error(detail);
     }
 
     const answer = data.answer || "Não consegui formar uma resposta. Tente novamente.";
@@ -179,11 +180,11 @@ async function sendFaithChatMessage(event) {
     if (chatProvider && data.providerLabel) chatProvider.textContent = data.providerLabel;
     setChatStatus("Resposta recebida.", "success");
   } catch (err) {
-    const msg = err.message && err.message !== "Failed to fetch"
+    const msg = (err.message && err.message !== "Failed to fetch")
       ? err.message
-      : "Erro de conexão. Verifique se a chave de IA foi configurada nas variáveis do Vercel.";
-    addChatMessage("assistant", "Não consegui responder agora. " + msg);
-    setChatStatus(msg, "error");
+      : "Erro de conexão com o servidor. Verifique as variáveis de ambiente no Vercel.";
+    addChatMessage("assistant", "Erro: " + msg);
+    setChatStatus("Erro: " + msg, "error");
   } finally {
     setChatLoading(false);
     chatInput.focus();
