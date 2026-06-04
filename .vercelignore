@@ -1,0 +1,5 @@
+# Arquivos legados na raiz — as funções ficam em /api/
+chat.js
+chat-status.js
+server.cjs
+.env
