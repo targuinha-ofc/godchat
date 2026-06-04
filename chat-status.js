@@ -6,13 +6,14 @@ function getProviderConfig() {
   const geminiKey    = process.env.GEMINI_API_KEY;
   const openaiKey    = process.env.OPENAI_API_KEY;
 
-  if (requested === "claude" || requested === "anthropic")
-    return { provider: "anthropic", providerLabel: "Claude",  ready: Boolean(anthropicKey), model: process.env.ANTHROPIC_MODEL || "claude-haiku-4-5-20251001" };
-  if (requested === "openai")
-    return { provider: "openai",    providerLabel: "ChatGPT", ready: Boolean(openaiKey),    model: process.env.OPENAI_MODEL    || "gpt-4o-mini" };
-  if (requested === "gemini")
-    return { provider: "gemini",    providerLabel: "Gemini",  ready: Boolean(geminiKey),    model: process.env.GEMINI_MODEL    || "gemini-2.0-flash" };
+  if ((requested === "claude" || requested === "anthropic") && anthropicKey)
+    return { provider: "anthropic", providerLabel: "Claude",  ready: true, model: process.env.ANTHROPIC_MODEL || "claude-haiku-4-5-20251001" };
+  if (requested === "gemini" && geminiKey)
+    return { provider: "gemini",    providerLabel: "Gemini",  ready: true, model: process.env.GEMINI_MODEL    || "gemini-2.0-flash" };
+  if (requested === "openai" && openaiKey)
+    return { provider: "openai",    providerLabel: "ChatGPT", ready: true, model: process.env.OPENAI_MODEL    || "gpt-4o-mini" };
 
+  // Auto-detect
   if (anthropicKey) return { provider: "anthropic", providerLabel: "Claude",  ready: true, model: process.env.ANTHROPIC_MODEL || "claude-haiku-4-5-20251001" };
   if (geminiKey)    return { provider: "gemini",    providerLabel: "Gemini",  ready: true, model: process.env.GEMINI_MODEL    || "gemini-2.0-flash" };
   if (openaiKey)    return { provider: "openai",    providerLabel: "ChatGPT", ready: true, model: process.env.OPENAI_MODEL    || "gpt-4o-mini" };

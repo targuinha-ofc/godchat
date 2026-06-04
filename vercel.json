@@ -1,5 +1,10 @@
 {
   "rewrites": [
-    { "source": "/api/chat/status", "destination": "/api/chat-status" }
-  ]
+    { "source": "/api/chat/status", "destination": "/api/chat-status" },
+    { "source": "/api/chat",        "destination": "/api/chat" }
+  ],
+  "functions": {
+    "api/chat.js":        { "maxDuration": 30 },
+    "api/chat-status.js": { "maxDuration": 10 }
+  }
 }

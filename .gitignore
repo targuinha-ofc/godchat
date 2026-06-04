@@ -2,12 +2,11 @@
 .env
 .env.local
 .env.*.local
- 
+
 # Dependências
 node_modules/
 npm-debug.log*
 yarn-error.log*
- 
+
 # Vercel
 .vercel/
- 
