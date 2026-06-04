@@ -23,6 +23,7 @@
   <!-- NAV -->
   <header class="site-header">
     <nav class="top-nav" aria-label="Navegação principal">
+      <a href="#chat">Chat</a>
       <a href="#versiculo">Versículo</a>
       <a href="#oracoes">Orações</a>
       <a href="#santos">Santos</a>
@@ -31,6 +32,14 @@
     </nav>
 
     <section class="hero" aria-labelledby="page-title">
+      <div class="hero-slideshow" aria-hidden="true">
+        <div class="hero-slide is-active" style="--hero-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/DaVinci_LastSupper_high_res_2_nowatmrk.jpg?width=2400'); --hero-position: center;"></div>
+        <div class="hero-slide" style="--hero-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg?width=2400'); --hero-position: center;"></div>
+        <div class="hero-slide" style="--hero-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Fra_Angelico_-_Annunciation.jpg?width=2400'); --hero-position: center 35%;"></div>
+        <div class="hero-slide" style="--hero-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/SacredHeartBatoni.jpg?width=1800'); --hero-position: center 18%;"></div>
+        <div class="hero-slide" style="--hero-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Raphael_-_The_Sistine_Madonna_-_Google_Art_Project.jpg?width=1800'); --hero-position: center 22%;"></div>
+        <div class="hero-slide" style="--hero-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Lady_of_Guadalupe.jpg?width=1800'); --hero-position: center 18%;"></div>
+      </div>
       <div class="hero-content">
         <p class="eyebrow">Fé Católica</p>
         <h1 id="page-title"><span class="hero-title-brand">GODCHAT</span> Versículos,<br>Orações<br>&amp; Santos</h1>
@@ -47,6 +56,36 @@
   </header>
 
   <main>
+
+    <!-- ════════════════ CHAT ════════════════ -->
+    <section id="chat" class="chat-section content-section" aria-labelledby="chat-title">
+      <div class="section-heading">
+        <span class="section-icon" aria-hidden="true">✝</span>
+        <p class="eyebrow">Conversa espiritual</p>
+        <h2 id="chat-title">Chat de oração</h2>
+        <p class="section-desc">Um espaço cristão para perguntas, direção, consolo e discernimento à luz da fé católica.</p>
+      </div>
+
+      <div class="chat-shell">
+        <div id="faithChatMessages" class="chat-messages" aria-live="polite">
+          <div class="chat-message chat-message-assistant">
+            <div class="chat-avatar" aria-hidden="true">✝</div>
+            <div class="chat-bubble">
+              <p>Que a paz de Cristo esteja com você. Abra seu coração com simplicidade; vamos buscar uma resposta com fé, caridade e esperança.</p>
+            </div>
+          </div>
+        </div>
+
+        <form id="faithChatForm" class="chat-form">
+          <label class="sr-only" for="faithChatInput">Mensagem para o chat de oração</label>
+          <textarea id="faithChatInput" maxlength="1200" rows="3" placeholder="Escreva sua pergunta, pedido de oração ou desabafo..."></textarea>
+          <div class="chat-actions">
+            <button id="faithChatButton" class="primary-button chat-submit" type="submit">Enviar</button>
+          </div>
+          <p id="faithChatStatus" class="chat-status" role="status">Configure a chave no servidor para ativar as respostas.</p>
+        </form>
+      </div>
+    </section>
 
     <!-- ════════════════ VERSÍCULO ════════════════ -->
     <section id="versiculo" class="verse-section content-section" aria-labelledby="verse-title">
