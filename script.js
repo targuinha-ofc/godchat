@@ -131,7 +131,7 @@ function addChatMessage(role, text) {
 // ─── CHAT ─────────────────────────────────────────────────────────────────────
 async function loadChatStatus() {
   try {
-    const res = await fetch("/api/chat/status");
+    const res = await fetch("/api/chat-status");
     if (!res.ok) throw new Error();
     const data = await res.json();
     if (chatProvider) chatProvider.textContent = data.providerLabel || "IA";

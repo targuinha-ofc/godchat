@@ -1,5 +1,19 @@
-# Arquivos legados na raiz — as funções ficam em /api/
-chat.js
-chat-status.js
-server.cjs
+# Arquivos e pastas que NÃO devem ir para o build/output
+
+# Segredos
 .env
+.env.local
+.env.*.local
+
+# Dependências
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+
+# Arquivos de controle
+.vercel/
+
+# (Mantemos) api/* para usar serverless do Vercel
+

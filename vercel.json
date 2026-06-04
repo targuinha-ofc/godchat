@@ -1,8 +1,1 @@
-{
-  "rewrites": [
-    {
-      "source": "/api/chat/status",
-      "destination": "/api/chat-status"
-    }
-  ]
-}
+{}
