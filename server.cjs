@@ -432,6 +432,6 @@ server.listen(PORT, "127.0.0.1", () => {
     console.log(`\nPara ativar o chat, adicione ao .env uma destas chaves:`);
     console.log(`  ANTHROPIC_API_KEY='sua-chave'   # Claude (recomendado)`);
     console.log(`  GEMINI_API_KEY='AQ.Ab8RN6Iw4f5cQ242NYcea-vkH5DH3OEpoQ97YuSgiqzBun2-Hg'       # Gemini`);
-    console.log(`  OPENAI_API_KEY='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'       # ChatGPT`);
+    console.log(`  OPENAI_API_KEY='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'       # ChatGPT`);
   }
 });
